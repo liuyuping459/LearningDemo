@@ -16,25 +16,25 @@ public class Test01 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		try {
 			char[] clist= br.readLine().trim().toCharArray();
-			Heap heap = new Heap();
+			Stack stack = new Stack();
 			for(int i = 0; i < clist.length; i++) {
 				if (clist[i] == '(' || clist[i] == '[') {
-					heap.add(clist[i]);
+					stack.add(clist[i]);
 				}
 				else if (clist[i] == ')') {
-					if (heap.get() != '(') {
+					if (stack.get() != '(') {
 						System.out.println("0");
 						return;
 					}
 				}
 				else if (clist[i] == ']') {
-					if (heap.get() != '[') {
+					if (stack.get() != '[') {
 						System.out.println("0");
 						return;
 					}
 				}
 			}
-			if (heap.isEmpty()) {
+			if (stack.isEmpty()) {
 				System.out.println("1");
 			}
 			else {
@@ -46,7 +46,7 @@ public class Test01 {
 	}
 }
 
-class Heap {
+class Stack {
 	List<Character> list = new ArrayList<Character>();
 	
 	public void add(char c) {
